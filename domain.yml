@@ -1,31 +1,90 @@
 intents:
   - greet
-  - goodbye
+  - bye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
+  - compliments
+  - book_room
+  - number_of_rooms
+  - type_of_room
+  - cleaning_service
+  - when_to_clean
+  - thank
   - bot_challenge
 
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+actions:
+  - action_clean_confirm
+  - utter_greet
+  - utter_how_can_i_help
+  - utter_no_of_rooms
+  - utter_did_that_help
+  - utter_pleased
+  - utter_sorry
+  - utter_room_type
+  - utter_booking_confirm
+  - utter_after_how_much_time
+  - utter_bye
+  - utter_welcome
+  - utter_iamabot
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+entities:
+  - room_count
+  - room_type
+  - time_type
+  - time_value
+
+slots:
+  time_type:
+    type: text
+  time_value:
+    type: text
+  room_count:
+    type: text
+  room_type:
+    type: text
+
+responses:
+  
+  utter_greet:
+    - text: "Hey! Welcome to the Taj hotel"
+
+  utter_how_can_i_help:
+    - text : "How can I help you today?"
+
+  utter_no_of_rooms:
+    - text: "How many rooms do you want to book?"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did I help you?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_pleased:
+    - text: "We were pleased to serve you."
 
-  utter_goodbye:
-  - text: "Bye"
+  utter_sorry:
+    - text: "We are sorry for inconvinience. We will surely try to improve our services."
+
+  utter_room_type:
+    - text: "What type of room do you want to book."
+      buttons:
+        - title: "Simple"
+          payload: "Simple"
+        - title: "Deluxe"
+          payload: "Deluxe"
+
+  utter_booking_confirm:
+    - text: "You have choosen {room_count} {room_type} rooms to book!"
+
+  utter_after_how_much_time:
+    - text: "After how much time do you want us to clean your room?"
+
+  utter_bye:
+    - text: "Goodbye, Have a nice day!"
+
+  utter_welcome:
+    - text : "My Pleasure!"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60

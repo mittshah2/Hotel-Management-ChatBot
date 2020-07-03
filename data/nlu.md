@@ -12,7 +12,7 @@
 - your hotel seems beautiful
 - you have a luxurious hotel
 
-## intent:goodbye
+## intent:bye
 - goodbye
 - see you around
 - see you later
@@ -60,6 +60,7 @@
 ## intent:number_of_rooms
 - [2](room_count) rooms
 - [2](room_count)
+- [3](room_count)
 - [2](room_count) rooms please 
 - [3](room_count) [Simple](room_type) rooms
 
@@ -90,6 +91,8 @@
 - after [2](time_value) [hours](time_type)
 - send someone after [2](time_value) [hours](time_type)
 - could you please send someone after [30](time_value) [minutes](time_type)
+- [2](time_value) [hours](time_type)
+- [30](time_value) [minutes](time_type)
 
 
 ## intent:thank
