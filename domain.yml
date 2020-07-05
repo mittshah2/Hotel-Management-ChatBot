@@ -11,37 +11,43 @@ intents:
   - when_to_clean
   - thank
   - bot_challenge
+  - faq
+
+
+forms:
+  - book_form
+  - clean_form
 
 actions:
-  - action_clean_confirm
   - utter_greet
   - utter_how_can_i_help
-  - utter_no_of_rooms
+  - utter_ask_room_count
+  - utter_ask_room_type
   - utter_did_that_help
   - utter_pleased
   - utter_sorry
-  - utter_room_type
-  - utter_booking_confirm
-  - utter_after_how_much_time
+  - utter_ask_time
   - utter_bye
   - utter_welcome
   - utter_iamabot
+  - respond_faq
+  - utter_wrong_room_count
+  - utter_wrong_time
 
 entities:
   - room_count
   - room_type
-  - time_type
-  - time_value
+  - time
 
 slots:
-  time_type:
-    type: text
-  time_value:
-    type: text
+  time:
+    type: unfeaturized
   room_count:
-    type: text
+    type: unfeaturized
   room_type:
-    type: text
+    type: unfeaturized
+
+
 
 responses:
   
@@ -51,7 +57,7 @@ responses:
   utter_how_can_i_help:
     - text : "How can I help you today?"
 
-  utter_no_of_rooms:
+  utter_ask_room_count:
     - text: "How many rooms do you want to book?"
 
   utter_did_that_help:
@@ -63,7 +69,7 @@ responses:
   utter_sorry:
     - text: "We are sorry for inconvinience. We will surely try to improve our services."
 
-  utter_room_type:
+  utter_ask_room_type:
     - text: "What type of room do you want to book."
       buttons:
         - title: "Simple"
@@ -71,10 +77,7 @@ responses:
         - title: "Deluxe"
           payload: "Deluxe"
 
-  utter_booking_confirm:
-    - text: "You have choosen {room_count} {room_type} rooms to book!"
-
-  utter_after_how_much_time:
+  utter_ask_time:
     - text: "After how much time do you want us to clean your room?"
 
   utter_bye:
@@ -82,6 +85,11 @@ responses:
 
   utter_welcome:
     - text : "My Pleasure!"
+
+  utter_wrong_room_count:
+    - text: "You can book maximum 10 rooms at once."
+  utter_wrong_time:
+    - text: "Please enter hours and minutes after which you want us to clean your room without any typos"
 
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
